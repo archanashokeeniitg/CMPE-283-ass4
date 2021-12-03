@@ -1,30 +1,42 @@
 # CMPE-283-ass4
 
+Archana Shokeen (015237378)
+
+
 # Nested Paging vs. Shadow Paging
 
-1.  test VM
 
-## CPUID leaf function 0x4FFFFFFE-  record total exit count information 
+# Steps Followed from Assignment 4 Documentation
 
-## Shutdown your test (inner) VM.
+For environment - Use kernel environment in Assignment 3
 
-Remove the ‘kvm-intel’ module from your running kernel:
-◦rmmod kvm-intel
+Boot test VM using assignment 3.
 
 
-Reload the kvm-intel module with the parameter ept=0 
+CPUID leaf function 0x4FFFFFFE-  record total exit count information 
 
-isable nested paging and force 
-KVM to use shadow paging instead)
+Record total exit count for each type of exit handled by KVM
 
-Booting the same test VM again,
+Shut down inner VM
 
+Remove 'kvm-intel' module
 
-sample of your print of exit count output from dmesg from “with ept” and “without ept”
+`rmmod kvm-intel`
 
+Reload kvm-intel module using the parameter ept = 0 
 
-learn from the count of exits? Was the count what you expected? If not, why not?
+Boot same test VM. Record the number of exits and exit types
 
+# Questions
 
+## Sample Outputs :
 
-What changed between the two runs (ept vs no-ept)?
+Check .txt files above
+
+## What did you learn from the count of exits? Was the count what you expected? If not, why not?
+
+With ept, the exit count is less in comparison to the exit count without ept. This is expected because an exit occurs only when an EPT violation is raised in nested paging. In shadow paging, more exits occur such as page faults, CR0 execution, etc.
+
+## What changed between the two runs(ept vs no-ept)?
+
+In non-ept mode, the page table does not belong to the guest VM. In ept mode, two page tables are utilized to get the host physical address and the page table elongs to the guest VM.
