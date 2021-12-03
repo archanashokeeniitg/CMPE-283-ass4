@@ -35,8 +35,8 @@ Check .txt files above
 
 ## What did you learn from the count of exits? Was the count what you expected? If not, why not?
 
-With ept, the exit count is less in comparison to the exit count without ept. This is expected because an exit occurs only when an EPT violation is raised in nested paging. In shadow paging, more exits occur such as page faults, CR0 execution, etc.
+the exit count is less in With ept,  compared to the exit count without ept. This is expected because an exit occurs only when an EPT violation is raised in nested paging. In shadow paging, more exits occur like page faults, CR0 exec, etc.
 
 ## What changed between the two runs(ept vs no-ept)?
 
-In non-ept mode, the page table does not belong to the guest VM. In ept mode, two page tables are utilized to get the host physical address and the page table elongs to the guest VM.
+In ept mode, two page tables are utilized to get the host physical address and the page table linked to the guest VM. In non-ept mode, the page table does not belong to the guest VM. 
